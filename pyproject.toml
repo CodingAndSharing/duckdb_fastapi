@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
 authors = [
-    {name = "Author", email = "author@example.com"},
+    {name = "Corina Duenas", email = "corina.bioinformatic@gmail.com"},
 ]
 keywords = ["fastapi", "duckdb", "api", "data"]
 classifiers = [
