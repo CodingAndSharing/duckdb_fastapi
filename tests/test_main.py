@@ -1,8 +1,5 @@
 """Tests for the main duckdb_fastapi module."""
 
-import json
-from pathlib import Path
-
 import pytest
 
 from duckdb_fastapi.main import (

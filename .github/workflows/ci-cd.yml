@@ -35,14 +35,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e ".[dev]"
 
-    - name: Lint with flake8
+    - name: Lint and format check with ruff
       run: |
-        flake8 duckdb_fastapi tests --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 duckdb_fastapi tests --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
-
-    - name: Format check with black
-      run: |
-        black --check duckdb_fastapi tests
+        ruff check duckdb_fastapi tests
+        ruff format --check duckdb_fastapi tests
 
     - name: Type check with mypy
       run: |

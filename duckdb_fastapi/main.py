@@ -1,6 +1,5 @@
 """Main module for DuckDB FastAPI application."""
 
-import os
 from pathlib import Path
 from typing import List, Optional
 
@@ -86,7 +85,6 @@ def _create_endpoints(app: FastAPI, data_path: Path, items: List[Path]) -> None:
     """
     for item in items:
         item_name = item.name.lower().replace(" ", "_").replace("-", "_")
-        relative_name = item.stem if item.is_file() else item.name
 
         if item.is_file():
             # Create endpoint for file
@@ -101,9 +99,11 @@ def _create_endpoints(app: FastAPI, data_path: Path, items: List[Path]) -> None:
                             result = conn.execute(
                                 f"SELECT * FROM read_json_auto('{item_path}')"
                             ).fetchall()
-                            columns = [
-                                desc[0] for desc in conn.description
-                            ] if conn.description else []
+                            columns = (
+                                [desc[0] for desc in conn.description]
+                                if conn.description
+                                else []
+                            )
                             return {
                                 "data": result,
                                 "columns": columns,
@@ -114,9 +114,11 @@ def _create_endpoints(app: FastAPI, data_path: Path, items: List[Path]) -> None:
                             result = conn.execute(
                                 f"SELECT * FROM read_csv_auto('{item_path}')"
                             ).fetchall()
-                            columns = [
-                                desc[0] for desc in conn.description
-                            ] if conn.description else []
+                            columns = (
+                                [desc[0] for desc in conn.description]
+                                if conn.description
+                                else []
+                            )
                             return {
                                 "data": result,
                                 "columns": columns,
@@ -127,9 +129,11 @@ def _create_endpoints(app: FastAPI, data_path: Path, items: List[Path]) -> None:
                             result = conn.execute(
                                 f"SELECT * FROM '{item_path}'"
                             ).fetchall()
-                            columns = [
-                                desc[0] for desc in conn.description
-                            ] if conn.description else []
+                            columns = (
+                                [desc[0] for desc in conn.description]
+                                if conn.description
+                                else []
+                            )
                             return {
                                 "data": result,
                                 "columns": columns,

@@ -1,10 +1,7 @@
 """Integration tests for duckdb_fastapi."""
 
-import json
 import pytest
-from fastapi.testclient import TestClient
 from duckdb_fastapi.main import run_fastapi
-from pathlib import Path
 
 
 @pytest.fixture

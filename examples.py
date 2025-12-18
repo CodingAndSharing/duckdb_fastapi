@@ -5,8 +5,6 @@ Example script demonstrating duckdb_fastapi usage.
 This script shows different ways to use the duckdb_fastapi package.
 """
 
-from duckdb_fastapi import run_fastapi
-
 
 def main():
     """Run different examples of duckdb_fastapi."""

@@ -36,9 +36,7 @@ dev = [
     "pytest-cov>=4.1.0",
     "pytest-asyncio>=0.21.0",
     "httpx>=0.24.0",
-    "black>=23.0.0",
-    "flake8>=6.0.0",
-    "isort>=5.12.0",
+    "ruff>=0.1.0",
     "mypy>=1.4.0",
 ]
 
@@ -49,14 +47,6 @@ Issues = "https://github.com/example/duckdb_fastapi/issues"
 
 [tool.setuptools]
 packages = ["duckdb_fastapi"]
-
-[tool.black]
-line-length = 100
-target-version = ["py38", "py39", "py10", "py311"]
-
-[tool.isort]
-profile = "black"
-line_length = 100
 
 [tool.mypy]
 python_version = "3.9"
