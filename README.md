@@ -115,7 +115,7 @@ pytest --cov=duckdb_fastapi --cov-report=html
 
 The project includes a GitHub Actions workflow that:
 
-- ✅ Runs tests on Python 3.8, 3.9, 3.10, 3.11
+- ✅ Runs tests on Python 3.9, 3.10, 3.11
 - ✅ Generates coverage reports with pytest-cov
 - ✅ Performs linting with flake8
 - ✅ Checks code formatting with black
@@ -176,7 +176,7 @@ pytest --cov=duckdb_fastapi
 
 ## Requirements
 
-- Python >= 3.8
+- Python >= 3.9
 - FastAPI >= 0.100.0
 - Uvicorn >= 0.23.0
 - DuckDB >= 0.8.0
