@@ -1,4 +1,4 @@
-"""DuckDB FastAPI - A FastAPI application for serving DuckDB data endpoints."""
+"""DuckDBFastAPI - A FastAPI application for serving DuckDB data endpoints."""
 
 __version__ = "0.1.0"
 

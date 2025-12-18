@@ -6,7 +6,7 @@ import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from duckdb_fastapi.main import _create_endpoints
+from duckdbfastapi.main import _create_endpoints
 
 
 class TestJSONEndpointExecution:

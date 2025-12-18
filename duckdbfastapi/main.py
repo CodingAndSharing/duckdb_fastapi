@@ -21,7 +21,7 @@ def _get_data_path(path_data: str) -> Path:
     Resolve the data path.
 
     Args:
-        path_data: Path to data or special keyword "duckdb_fastapi_datasample"
+        path_data: Path to data or special keyword "duckdbfastapi_datasample"
 
     Returns:
         Path: Resolved path to the data directory
@@ -29,7 +29,7 @@ def _get_data_path(path_data: str) -> Path:
     Raises:
         ValueError: If path does not exist
     """
-    if path_data == "duckdb_fastapi_datasample":
+    if path_data == "duckdbfastapi_datasample":
         # Get the datasample folder relative to this package
         base_path = Path(__file__).parent.parent
         resolved_path = base_path / "datasample"
@@ -178,7 +178,7 @@ def run_fastapi(
     Run FastAPI application with data endpoints.
 
     Args:
-        path_data: Path to data directory or "duckdb_fastapi_datasample"
+        path_data: Path to data directory or "duckdbfastapi_datasample"
         specific_items: Optional list of specific files/folders to create endpoints for
         port: Port to run the server on (default: 8000)
         host: Host to run the server on (default: 127.0.0.1)
@@ -189,7 +189,7 @@ def run_fastapi(
 
     Example:
         >>> run_fastapi("./data")
-        >>> run_fastapi("duckdb_fastapi_datasample", port=9000)
+        >>> run_fastapi("duckdbfastapi_datasample", port=9000)
         >>> run_fastapi("./data", specific_items=["file1.json", "folder1"])
         >>> run_fastapi("./data", host="0.0.0.0", port=8080)
     """

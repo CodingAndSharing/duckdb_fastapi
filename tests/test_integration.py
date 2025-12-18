@@ -1,7 +1,7 @@
-"""Integration tests for duckdb_fastapi."""
+"""Integration tests for duckdbfastapi."""
 
 import pytest
-from duckdb_fastapi.main import run_fastapi
+from duckdbfastapi.main import run_fastapi
 
 
 @pytest.fixture
@@ -55,7 +55,7 @@ class TestDataSourceHandling:
 
     def test_mixed_specific_items(self, temp_data_dir):
         """Test with mix of existing and non-existing items."""
-        from duckdb_fastapi.main import _get_items_to_process
+        from duckdbfastapi.main import _get_items_to_process
 
         # Should process only existing items
         items = _get_items_to_process(
@@ -69,7 +69,7 @@ class TestEndpointGeneration:
 
     def test_endpoint_names_sanitized(self, temp_data_dir):
         """Test that endpoint names are properly sanitized."""
-        from duckdb_fastapi.main import _get_items_to_process
+        from duckdbfastapi.main import _get_items_to_process
 
         items = _get_items_to_process(temp_data_dir)
         for item in items:

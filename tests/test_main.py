@@ -1,8 +1,8 @@
-"""Tests for the main duckdb_fastapi module."""
+"""Tests for the main duckdbfastapi module."""
 
 import pytest
 
-from duckdb_fastapi.main import (
+from duckdbfastapi.main import (
     _create_endpoints,
     _get_data_path,
     _get_items_to_process,
@@ -29,8 +29,8 @@ class TestGetDataPath:
             _get_data_path(str(sample_json_file))
 
     def test_get_data_path_with_datasample_keyword(self):
-        """Test with duckdb_fastapi_datasample keyword."""
-        result = _get_data_path("duckdb_fastapi_datasample")
+        """Test with duckdbfastapi_datasample keyword."""
+        result = _get_data_path("duckdbfastapi_datasample")
         assert result.is_dir()
         assert result.name == "datasample"
 

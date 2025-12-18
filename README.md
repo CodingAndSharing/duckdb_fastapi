@@ -1,4 +1,4 @@
-[![CI/CD Pipeline](https://github.com/CodingAndSharing/duckdb_fastapi/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/CodingAndSharing/duckdb_fastapi/actions/workflows/ci-cd.yml)
+[![CI/CD Pipeline](https://github.com/CodingAndSharing/duckdbfastapi/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/CodingAndSharing/duckdbfastapi/actions/workflows/ci-cd.yml)
 
 # DuckDB FastAPI
 
@@ -16,14 +16,23 @@ A FastAPI application for creating dynamic endpoints to serve DuckDB data from f
 ## Installation
 
 ```bash
-pip install duckdb-fastapi
+pip install duckdbfastapi
 ```
 
 ### Development Installation
 
+Easy install:
+
+```sh
+pip install duckdbfastapi
+```
+
+
+Or latest development version at github:
+
 ```bash
-git clone <repository-url>
-cd duckdb_fastapi
+git clone https://github.com/CodingAndSharing/duckdbfastapi.git
+cd duckdbfastapi
 pip install -e ".[dev]"
 ```
 
@@ -32,10 +41,10 @@ pip install -e ".[dev]"
 ### Basic Usage
 
 ```python
-from duckdb_fastapi import run_fastapi
+from duckdbfastapi import run_fastapi
 
 # Run with default datasample
-run_fastapi("duckdb_fastapi_datasample")
+run_fastapi("duckdbfastapi_datasample")
 
 # Run with custom data directory
 run_fastapi("/path/to/data")
@@ -61,7 +70,7 @@ Once running, the application provides:
 
 `run_fastapi(path_data, specific_items=None, port=8000, host="127.0.0.1")`
 
-- **path_data** (str, required): Path to data directory or `"duckdb_fastapi_datasample"`
+- **path_data** (str, required): Path to data directory or `"duckdbfastapi_datasample"`
 - **specific_items** (List[str], optional): List of specific files/folders to expose
 - **port** (int, optional): Port to run server on (default: 8000)
 - **host** (str, optional): Host to bind to (default: "127.0.0.1")
@@ -75,7 +84,7 @@ Once running, the application provides:
 ## Example
 
 ```python
-from duckdb_fastapi import run_fastapi
+from duckdbfastapi import run_fastapi
 
 # Run with custom data
 run_fastapi(
@@ -97,7 +106,7 @@ run_fastapi(
 Run tests with coverage:
 
 ```bash
-pytest tests/ --cov=duckdb_fastapi --cov-report=html
+pytest tests/ --cov=duckdbfastapi --cov-report=html
 ```
 
 Run specific test file:
@@ -109,7 +118,7 @@ pytest tests/test_main.py -v
 Generate coverage report:
 
 ```bash
-pytest --cov=duckdb_fastapi --cov-report=html
+pytest --cov=duckdbfastapi --cov-report=html
 # Open htmlcov/index.html in browser
 ```
 
@@ -119,8 +128,8 @@ The project includes a GitHub Actions workflow that:
 
 - ✅ Runs tests on Python 3.9, 3.10, 3.11
 - ✅ Generates coverage reports with pytest-cov
-- ✅ Performs linting with flake8
-- ✅ Checks code formatting with black
+- ✅ Performs linting with ruff
+- ✅ Checks code formatting with ruff
 - ✅ Runs type checking with mypy
 - ✅ Builds distribution packages
 - ✅ Enforces quality gates (minimum 70% coverage)
@@ -128,20 +137,23 @@ The project includes a GitHub Actions workflow that:
 ## Project Structure
 
 ```
-duckdb_fastapi/
+duckdbfastapi/
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml           # GitHub Actions workflow
-├── duckdb_fastapi/
+│       ├── ci-cd.yml           # GitHub Actions workflow
+│       └── publish.yml         # PyPI publish workflow
+├── duckdbfastapi/
 │   ├── __init__.py             # Package exports
 │   └── main.py                 # Main application logic
 ├── tests/
 │   ├── __init__.py
 │   ├── conftest.py             # Pytest fixtures
 │   ├── test_main.py            # Unit tests
-│   └── test_integration.py      # Integration tests
+│   ├── test_integration.py      # Integration tests
+│   └── test_*.py               # Additional test modules
 ├── datasample/                 # Sample data directory
 ├── pyproject.toml              # Project configuration
+├── ruff.toml                   # Ruff configuration
 ├── README.md                   # This file
 └── .gitignore
 ```
@@ -150,9 +162,7 @@ duckdb_fastapi/
 
 ### Code Quality Tools
 
-- **Black**: Code formatting
-- **isort**: Import sorting
-- **Flake8**: Linting
+- **Ruff**: Linting and formatting
 - **mypy**: Type checking
 - **pytest**: Testing
 - **pytest-cov**: Coverage reporting
@@ -160,20 +170,17 @@ duckdb_fastapi/
 ### Running Quality Checks
 
 ```bash
-# Format code
-black duckdb_fastapi tests
+# Lint with ruff
+ruff check duckdbfastapi tests
 
-# Sort imports
-isort duckdb_fastapi tests
-
-# Lint
-flake8 duckdb_fastapi tests
+# Format with ruff
+ruff format duckdbfastapi tests
 
 # Type check
-mypy duckdb_fastapi
+mypy duckdbfastapi
 
 # Test with coverage
-pytest --cov=duckdb_fastapi
+pytest --cov=duckdbfastapi
 ```
 
 ## Requirements

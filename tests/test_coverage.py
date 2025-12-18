@@ -1,10 +1,10 @@
-"""Comprehensive tests for endpoint coverage in duckdb_fastapi."""
+"""Comprehensive tests for endpoint coverage in duckdbfastapi."""
 
 import json
 
 import pytest
 from fastapi import FastAPI
-from duckdb_fastapi.main import _create_endpoints, _get_items_to_process
+from duckdbfastapi.main import _create_endpoints, _get_items_to_process
 
 
 class TestCreateEndpointsFileHandling:
@@ -182,14 +182,14 @@ class TestDataPathResolutionExtended:
 
     def test_absolute_path_resolution(self, temp_data_dir):
         """Test absolute path is handled correctly."""
-        from duckdb_fastapi.main import _get_data_path
+        from duckdbfastapi.main import _get_data_path
 
         result = _get_data_path(str(temp_data_dir.absolute()))
         assert result.is_absolute()
 
     def test_relative_path_to_absolute(self, temp_data_dir):
         """Test relative paths are converted to absolute."""
-        from duckdb_fastapi.main import _get_data_path
+        from duckdbfastapi.main import _get_data_path
         import os
 
         # Save current directory

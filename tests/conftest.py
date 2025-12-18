@@ -1,4 +1,4 @@
-"""Test fixtures for duckdb_fastapi tests."""
+"""Test fixtures for duckdbfastapi tests."""
 
 import json
 import tempfile
