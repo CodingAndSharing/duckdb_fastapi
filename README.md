@@ -1,3 +1,5 @@
+[![CI/CD Pipeline](https://github.com/CodingAndSharing/duckdb_fastapi/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/CodingAndSharing/duckdb_fastapi/actions/workflows/ci-cd.yml)
+
 # DuckDB FastAPI
 
 A FastAPI application for creating dynamic endpoints to serve DuckDB data from files and folders.
