@@ -1,4 +1,4 @@
-[![CI/CD Pipeline](https://github.com/CodingAndSharing/duckdbfastapi/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/CodingAndSharing/duckdbfastapi/actions/workflows/ci-cd.yml)
+[![CI/CD Pipeline](https://github.com/CodingAndSharing/duckdbfastapi/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/CodingAndSharing/duckdbfastapi/actions/workflows/ci-cd.yml) ![Static Badge](https://img.shields.io/badge/version-beta)
 
 # DuckDB FastAPI
 
@@ -88,8 +88,8 @@ from duckdbfastapi import run_fastapi
 
 # Run with custom data. replace path_data value with the folder where you store your data
 run_fastapi(
-    path_data="/home/user/data",
-    specific_items=["users.json", "products.csv"],
+    path_data="./datasample",
+    specific_items=[],
     host="0.0.0.0",
     port=8000
 )

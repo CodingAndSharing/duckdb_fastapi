@@ -9,6 +9,8 @@ jobs:
   build-and-publish:
     name: Build and Publish to PyPI
     runs-on: ubuntu-latest
+    # Uncomment the environment below if you've configured a PyPI trusted publisher environment
+    environment: pypi
     permissions:
       id-token: write  # Required for trusted publishing with OIDC
       contents: read
@@ -48,3 +50,9 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           verbose: true
+          # Uncomment one of the options below:
+          # Option 1: Use trusted publishing (default, requires PyPI configuration)
+          # Leave as-is with id-token permissions above
+          
+          # Option 2: Use PyPI token (add PYPI_API_TOKEN as GitHub secret)
+          # password: ${{ secrets.PYPI_API_TOKEN }}
