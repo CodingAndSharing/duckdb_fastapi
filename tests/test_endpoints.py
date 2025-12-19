@@ -76,7 +76,7 @@ class TestEndpointResponses:
             # Add health check
             @app.get("/health")
             async def health_check():
-                return {"status": "healthy", "version": "0.1.0"}
+                return {"status": "healthy", "version": "0.1.2"}
 
             client = TestClient(app)
             response = client.get("/health")
@@ -95,7 +95,7 @@ class TestEndpointResponses:
             async def root():
                 return {
                     "message": "DuckDB FastAPI",
-                    "version": "0.1.0",
+                    "version": "0.1.2",
                     "data_path": str(temp_data_dir),
                     "endpoints": [f"/data/{item.name}" for item in items],
                 }
@@ -300,7 +300,7 @@ class TestApplicationCreation:
 
         app = mock_uvicorn.call_args[0][0]
         assert app.title == "DuckDB FastAPI"
-        assert "0.1.0" in app.version
+        assert "0.1.2" in app.version
 
     @patch("duckdbfastapi.main.uvicorn.run")
     def test_app_description(self, mock_uvicorn, temp_data_dir):

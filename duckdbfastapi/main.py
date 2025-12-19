@@ -601,7 +601,7 @@ def run_fastapi(
     app = FastAPI(
         title="DuckDB FastAPI",
         description="FastAPI application for serving DuckDB data endpoints",
-        version="0.1.0",
+        version="0.1.2",
     )
 
     # Resolve data path
@@ -626,7 +626,7 @@ def run_fastapi(
     @app.get("/health")
     async def health_check():
         """Health check endpoint."""
-        return {"status": "healthy", "version": "0.1.0"}
+        return {"status": "healthy", "version": "0.1.2"}
 
     # Add root endpoint
     @app.get("/")
@@ -634,7 +634,7 @@ def run_fastapi(
         """Root endpoint."""
         return {
             "message": "DuckDB FastAPI",
-            "version": "0.1.0",
+            "version": "0.1.2",
             "data_path": str(data_path),
             "endpoints": [f"/data/{item.name}" for item in items],
         }
