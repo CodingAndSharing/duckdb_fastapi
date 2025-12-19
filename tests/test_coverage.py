@@ -88,8 +88,8 @@ class TestFileOperations:
 
     def test_unsupported_file_type(self, tmp_path):
         """Test handling of unsupported file types."""
-        unsupported_file = tmp_path / "test.txt"
-        unsupported_file.write_text("some text")
+        unsupported_file = tmp_path / "test.log"
+        unsupported_file.write_text("some log content")
 
         # Unsupported files should not create endpoints
         app = FastAPI()

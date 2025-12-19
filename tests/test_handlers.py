@@ -143,16 +143,17 @@ class TestUnsupportedFileFormats:
     """Test handling of unsupported file formats."""
 
     def test_txt_file_not_processed(self, tmp_path):
-        """Test that .txt files are not processed."""
+        """Test that .txt files ARE now processed (tab-separated) with schema endpoint."""
         txt_file = tmp_path / "data.txt"
-        txt_file.write_text("plain text content")
+        txt_file.write_text("col1\tcol2\tol3\n1\t2\t3\n")
 
         app = FastAPI()
-        _create_endpoints(app, tmp_path, [txt_file])
+        _create_endpoints(app, tmp_path, [txt_file], include_schema_cols=True)
 
-        # No data routes should be created
+        # TXT files should now create 2 routes: data and columnnames (schema)
         data_routes = [r for r in app.routes if "/data/" in r.path]
-        assert len(data_routes) == 0
+        assert len(data_routes) == 2
+        assert any("columnnames" in r.path for r in data_routes)
 
     def test_log_file_not_processed(self, tmp_path):
         """Test that .log files are not processed."""

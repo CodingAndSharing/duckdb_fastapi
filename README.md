@@ -86,13 +86,14 @@ Once running, the application provides:
 ```python
 from duckdbfastapi import run_fastapi
 
-# Run with custom data
+# Run with custom data. replace path_data value with the folder where you store your data
 run_fastapi(
     path_data="/home/user/data",
     specific_items=["users.json", "products.csv"],
     host="0.0.0.0",
     port=8000
 )
+
 
 # Then visit:
 # http://localhost:8000/ - List all endpoints
